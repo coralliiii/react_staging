@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch ,Redirect} from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 import Home from './pages/Home'//路由组件
 import About from './pages/About'
 import Header from './components/Header'
@@ -26,7 +26,7 @@ export default class App extends Component {
 							{/* <NavLink activeClassName='hogwards' className='list-group-item' to="/about">About</NavLink>
 							<NavLink activeClassName='hogwards' className='list-group-item' to="/home">Home</NavLink> */}
 							<MyNavLink to="/about">About</MyNavLink>
-							<MyNavLink to="/home">Home</MyNavLink>
+							<MyNavLink to="/home/a/b">Home</MyNavLink>
 						</div>
 					</div>
 					<div className="col-xs-6">
@@ -34,9 +34,14 @@ export default class App extends Component {
 							<div className="panel-body">
 								{/* 注册路由 */}
 								<Switch>
+									{/* <Route exact path="/about" component={About} />
+									<Route exact path="/home" component={Home} /> */}
 									<Route path="/about" component={About} />
 									<Route path="/home" component={Home} />
-									<Redirect to="/about"/>
+									{/* 路由的严格匹配与模糊匹配
+									1.默认使用的是模糊匹配（简单记：【输入的路径】必须包含要【匹配的路径】，且顺序要一致）
+									2.开启严格匹配：<Route exact={true} path="/about" component={About}/>
+									3.严格匹配不要随便开启，需要再开，有些时候开启会导致无法继续匹配二级路由 */}
 								</Switch>
 							</div>
 						</div>
