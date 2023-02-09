@@ -1,47 +1,42 @@
 import React, { Component } from 'react'
-import { Route, Switch ,Redirect} from "react-router-dom"
-import Home from './pages/Home'//路由组件
-import About from './pages/About'
-import Header from './components/Header'
-import MyNavLink from './components/MyNavLink'
+import { Button, DatePicker, ConfigProvider } from 'antd';
+import {
+	WechatOutlined,
+	SmileTwoTone
+} from '@ant-design/icons';
 
 export default class App extends Component {
-
 	render() {
 		return (
 			<div>
-				<div className="row">
-					<div className="col-xs-offset-2 col-xs-8">
-						<Header />
-					</div>
-				</div>
-				<div className="row">
-					<div className="col-xs-2 col-xs-offset-2">
-						<div className="list-group">
-							{/* 原生html中，靠<a>跳转不同的页面 */}
-							{/* <a className="list-group-item" href="./about.html">About</a>
-							<a className="list-group-item active" href="./home.html">Home</a> */}
-
-							{/* 在React中靠路由链接实现切换组件 */}
-							{/* <NavLink activeClassName='hogwards' className='list-group-item' to="/about">About</NavLink>
-							<NavLink activeClassName='hogwards' className='list-group-item' to="/home">Home</NavLink> */}
-							<MyNavLink to="/about">About</MyNavLink>
-							<MyNavLink to="/home">Home</MyNavLink>
-						</div>
-					</div>
-					<div className="col-xs-6">
-						<div className="panel">
-							<div className="panel-body">
-								{/* 注册路由 */}
-								<Switch>
-									<Route path="/about" component={About} />
-									<Route path="/home" component={Home} />
-									<Redirect to="/about"/>
-								</Switch>
-							</div>
-						</div>
-					</div>
-				</div>
+				App....
+				<button>点我</button>&nbsp;&nbsp;
+				<Button type="primary ">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="ghost">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="dashed ">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="link ">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="text  ">Primary Button</Button>&nbsp;&nbsp;
+				&nbsp;&nbsp;<WechatOutlined />&nbsp;&nbsp;
+				&nbsp;&nbsp;<SmileTwoTone />&nbsp;&nbsp;
+				<DatePicker onChange={''} />
+				<hr />
+				<hr />
+				<hr />
+				<ConfigProvider
+					theme={{
+						token: {
+							colorPrimary: '#00b96b',
+						},
+					}}
+				><Button type="primary ">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="ghost">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="dashed ">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="link ">Primary Button</Button>&nbsp;&nbsp;
+				<Button type="text  ">Primary Button</Button>&nbsp;&nbsp;
+				&nbsp;&nbsp;<WechatOutlined />&nbsp;&nbsp;
+				&nbsp;&nbsp;<SmileTwoTone />&nbsp;&nbsp;
+				<DatePicker onChange={''} />
+				</ConfigProvider>
 			</div>
 		)
 	}
